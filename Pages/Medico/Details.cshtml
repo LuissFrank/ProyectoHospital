@@ -1,0 +1,75 @@
+@page
+@model NewApp._Pages_Medico.DetailsModel
+
+@functions{
+        async System.Threading.Tasks.Task MostrarImagen(string rutafoto) {
+        if (String.IsNullOrEmpty(rutafoto))
+        {
+                <img src="~/images/icon-doctor.jpg" class="rounded-circle" style="width:90px;height:90px;" />
+        }
+        else 
+        { 
+                <img src="@Url.Content("~/images/"+ rutafoto)"  class="rounded-circle" style="width:75px;height:75px;" />
+        }
+
+    }
+}
+
+
+
+
+
+<div>
+    <div class="card mb-2">
+  <h3 class="card-header">Infomacion del Medico: @Model.Medico.Apellido</h3>
+  <div class="card-body">
+    @{await MostrarImagen(Model.Medico.Fotoruta);}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Nombre Completo:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Medico.NCompleto</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">DNI:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Medico.DNI</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Matricula:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Medico.Matricula</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Departamento:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Medico.Departamento.Especialidad</h6>
+  </div>
+</div>
+</div>
+<h4>Pacientes</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Completo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pac in (List<NewApp.Model.Paciente>)ViewData["PacAsing"])
+        {
+            <tr>
+                <td>@pac.ID</td>
+                <td>@pac.NCompleto</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <button class="btn btn-primary">
+        <a asp-page="./Edit" asp-route-id="@Model.Medico.Id">Editar</a>
+    </button>
+    <button class="btn btn-success">
+        <a asp-page="./Index">Volver</a>
+    </button>
+    
+    
+</div>
+
+

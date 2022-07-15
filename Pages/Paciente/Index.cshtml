@@ -1,0 +1,123 @@
+@page
+@inject NewApp.Servicios.IPaciente pacService
+@model NewApp._Pages_Paciente.IndexModel
+@{
+}
+
+@functions{
+ 
+
+    void ResultOB(int ObraSocial)
+    {
+        if(ObraSocial==1)
+        {
+            <span class="bi bi-check-square-fill text-success"></span>;
+        }
+        else
+        {
+            <span class="bi bi-x-square-fill text-danger"></span>;
+        }
+    }
+
+    void ResultEstado(int Estado)
+    {
+        if(Estado==2)
+        {
+            <span class="text-success">Normal</span>;
+        }
+        else
+        {
+            <span class="text-danger">Critico</span>;
+        }
+    }
+
+    void ResultSexo(int Sexo)
+    {
+        if(Sexo==1)
+        {
+            <span>M</span>
+        }
+        else
+        {
+            <span>F</span>
+        }
+    }
+
+    
+    
+
+    
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th >ID</th>
+            <th class="text-primary">Nombre</th>
+            <th><a asp-page="./Index" asp-route-orden="Apellido"> Apellido</a></th>
+            <th class="text-primary">DNI</th>
+            <th class="text-primary"> Edad</th>
+            <th class="text-primary">Sexo</th>
+            <th class="text-primary">Motivo</th>
+            <th class="text-primary">Obra Social</th>
+            <th class="text-primary">Estado</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pac in Model.Paciente)
+        {
+            <tr>
+                <td>
+                    <img class="lista" src="~/images/pacientes.jpg" width="70px">
+                </td>
+                <td>@pac.ID</td>
+                <td>@pac.Nombre</td>
+                <td>@pac.Apellido</td>
+                <td>@pac.DNI</td>
+                <td>@pac.Edad</td>
+                <td>@{ResultSexo(pac.SexoId);}</td> 
+                <td>@pac.Motivo</td>
+                <th>@{ResultOB(pac.ObraSocialId);}</th>
+                <th>@{ResultEstado(pac.EstadoId);}</th>
+                <th>
+                    <a asp-page="./Edit" asp-route-id="@pac.ID" class="btn btn-outline-success" > 
+                        <i class="bi bi-pencil-square"></i>Editar
+                    </a>
+                </th>
+                <th> 
+                    <a asp-page="./Index"  asp-page-handler="Borrar"
+                        onclick="return confirm('Esta seguro que quiere borrar este paciente?')"
+                     asp-route-idborrado="@pac.ID" class="btn btn-outline-danger">
+                        <i class="bi bi-person-x-fill" ></i>Borrar
+                    </a>
+                </th>
+                <th>
+                    <a asp-page="./Details" asp-route-id="@pac.ID" class="btn btn-outline-info">
+                        <i class="bi bi-credit-card-2-front"></i>Info
+                    </a>
+                </th>
+            </tr> 
+        }
+    </tbody>
+</table>
+<table>
+    <thead>
+        <th>
+                <a asp-page="./Create" class="btn btn-primary"> Crear
+                <i class="bi bi-person-plus-fill"></i>
+                </a>
+            
+        </th>
+        <th>
+            <form class="d-flex" asp-page="./Index" asp-page-handler="Buscar" method="post">
+                <input class="form-control me-sm-2" type="text" name="apellido"  placeholder="       Buscar por Apellido">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </th>
+    </thead>
+</table>

@@ -1,0 +1,46 @@
+@page
+@model NewApp._Pages_Medico.DeleteModel
+
+
+<div>
+    <h4>Medico</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Medico.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Medico.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Medico.Apellido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Medico.Apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Medico.DNI)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Medico.DNI)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Medico.Matricula)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Medico.Matricula)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Medico.Fotoruta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Medico.Fotoruta)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Medico.Id" />
+        <input type="submit" value="Borrar" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-primary">Volver</a>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+@page
+@model NewApp._Pages_Departamento.DeleteModel
+
+
+
+
+
+<div>
+    <h4>Departamento a borrar: @Model.Departamento.Especialidad</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Departamento.Especialidad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Departamento.Especialidad)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Departamento.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Volver</a>
+    </form>
+</div>
+

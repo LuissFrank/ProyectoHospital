@@ -1,0 +1,51 @@
+@page
+@model NewApp._Pages_Medico.EditModel
+
+
+<h4>Medico</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Medico.Id" />
+            <div class="form-group">
+                <label asp-for="Medico.Nombre" class="control-label"></label>
+                <input asp-for="Medico.Nombre" class="form-control" />
+                <span asp-validation-for="Medico.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medico.Apellido" class="control-label"></label>
+                <input asp-for="Medico.Apellido" class="form-control" />
+                <span asp-validation-for="Medico.Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medico.DNI" class="control-label"></label>
+                <input asp-for="Medico.DNI" class="form-control" />
+                <span asp-validation-for="Medico.DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medico.Matricula" class="control-label"></label>
+                <input asp-for="Medico.Matricula" class="form-control" />
+                <span asp-validation-for="Medico.Matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medico.Departamento" class="control-label"></label>
+                <select asp-for="Medico.DepartamentoId"class="form-control" asp-items="ViewBag.DepartamentoId"></select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="Medico.Fotoruta" for="flexSwitchCheckDefault">Seleccionar imagen</label>
+                <input class="form-control" asp-for="Medico.Fotoruta" type="file" id="flexSwitchCheckDefault">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="btn btn-secondary my-2 my-sm-0">Volver</a>
+    
+</div>
+

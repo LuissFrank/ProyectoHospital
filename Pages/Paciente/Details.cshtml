@@ -1,0 +1,53 @@
+@page
+@model NewApp._Pages_Paciente.DetailsModel
+@{
+}
+
+
+
+<div class="card mb-2">
+  <h3 class="card-header">Infomacion del paciente: @Model.Paciente.Apellido</h3>
+  <div class="card-body">
+    <h5 class="card-title">Nombre Completo:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Paciente.NCompleto</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">DNI:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Paciente.DNI</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">SEXO:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Paciente.Sexo.Genero</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Obra Social:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Paciente.ObraSocial.ObraSocial</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Estado:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Paciente.Estado.Estado</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Motivo:</h5>
+    <p class="card-text">
+        @Model.Paciente.Motivo
+    </p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Descripcion:</h5>
+    <p class="card-text">
+        @Model.Paciente.Descripcion
+    </p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Medico:</h5>
+    <h6 class="card-subtitle text-muted">@Model.Paciente.Medico.NCompleto</h6>
+  </div>
+</div>
+
+
+ <div class="volver">
+        <a asp-page="./Index" class="btn btn-success"> volver
+        <i class="bi bi-arrow-left-square"></i>
+        </a>
+ </div>  

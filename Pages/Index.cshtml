@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="text-center">
+        <h1 class="display-4">Sistema de Pacientes</h1>
+        <img src="~/images/index.jpg" alt="">
+
+    </div>
+}
+else
+{
+    <div class="text-center"> 
+        <h1>Debe iniciar sesion</h1>
+        <img src="~/images/paciente.png" alt="">
+     </div>
+     <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Click para Iniciar Sesion</a>
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Click para Registrarte</a>
+}
+    
+
+

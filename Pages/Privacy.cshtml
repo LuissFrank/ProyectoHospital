@@ -1,0 +1,30 @@
+@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Detales del sistema";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Ordenamiento de lista por: ID, Apellido, DNI, Obra Social(si tiene) y Estado(Critico).
+    <span class="badge bg-primary rounded-pill">1</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Dentro de la lista de puede borrar, modificar y ver informacion del paciente.
+    <span class="badge bg-primary rounded-pill">2</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Para crear un paciente estan las validaciones en ID, Apellido, DNI, Motivo y Estado del Paciente.
+    <span class="badge bg-primary rounded-pill">3</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Dentro de la lista de pacientes, se puede buscar por el campo ID
+    <span class="badge bg-primary rounded-pill">4</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Se puede editar todos los campos del paciente excepto el ID.
+    <span class="badge bg-primary rounded-pill">5</span>
+  </li>
+</ul>

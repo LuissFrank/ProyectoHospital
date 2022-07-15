@@ -1,0 +1,83 @@
+@model NewApp.Model.Paciente
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
+
+@if (@Model==null || @Model.ID==0)
+{
+    <div class="text-center">
+        <h1 class="display-5">Carga de Pacientes</h1>
+    </div>
+}
+else
+{
+    <legend>Actualizar Paciente: @Model.NCompleto</legend>
+}
+
+
+<form method="post">
+  <fieldset>
+            <div class="form-floating">
+                <input type="text" asp-for="@Model.Nombre" class="form-control" id="floatingInput" placeholder="Nombre"/>
+                <label for="floatingInput">Nombre</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" asp-for="@Model.Apellido" class="form-control" id="floatingInput" placeholder="Apellido"/>
+                <span asp-validation-for="@Model.Apellido" class= "badge bg-danger"></span>
+                <label for="floatingInput">Apellido</label>
+            </div>
+            <div class="form-floating">
+                <input type="number"asp-for="@Model.DNI" class="form-control" id="floatingInput" placeholder="DNI"/>
+                <span asp-validation-for="@Model.DNI" class="badge bg-danger"></span>
+                <label for="floatingInput">DNI</label>
+            </div>
+            <div class="form-floating">
+                <input type="text"asp-for="@Model.Edad" class="form-control" id="floatingInput" placeholder="Edad"/>
+                <label for="floatingInput">Edad</label>
+            </div>
+            <div class="form-floating">
+                <input type="text"asp-for="@Model.Motivo" class="form-control" id="floatingInput" placeholder="Motivo"/>
+                <span asp-validation-for="@Model.Motivo" class="badge bg-danger"></span>
+                <label for="floatingInput">Motivo</label>
+            </div>
+            <div class="form-floating">
+                <input type="text"asp-for="@Model.Descripcion" class="form-control" id="floatingInput" placeholder="Descripcion"/>
+                <label for="floatingInput">Descripcion</label>
+            </div>
+            <div class="form-floating">
+                <select asp-for="@Model.SexoId" class="form-control" asp-items="ViewBag.SexoId" id="floatingInput"></select>
+                <label for="floatingInput">Sexo</label>
+            </div>
+            <div class="form-floating">
+                <select asp-for="@Model.ObraSocialId" class="form-control" asp-items="ViewBag.ObraSocialId" id="floatingInput"></select>
+                <label for="floatingInput">Obra Social</label>
+            </div>
+            <div class="form-floating">
+                <select asp-for="@Model.EstadoId" class="form-control" asp-items="ViewBag.EstadoId" id="floatingInput"></select>
+                <label for="floatingInput">Estado</label>
+            </div>
+            <div class="form-floating">
+                <label>
+                    <span asp-validation-for="@Model.Estado" class="badge bg-danger"></span>
+                </label>
+            <div class="form-floating">
+                <select asp-for="@Model.MedicoId" class="form-control" id="floatingInput" asp-items="ViewBag.MedicoId"></select>
+                <label for="floatingInput">Medico</label>
+            </div>
+            <div>
+                @if (@Model==null || @Model.ID==0)
+                {
+                    <input type="submit" class="btn btn-success" value="Cargar"/>
+                    
+                }
+                else
+                {
+                    <input type="submit" class="btn btn-success" value="Actualizar"/>
+                }
+                
+                    <a asp-page="./Index" class="btn btn-secondary my-2 my-sm-0">Volver</a>
+
+            </div>
+  </fieldset>
+</form>
